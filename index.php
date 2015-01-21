@@ -1,4 +1,3 @@
-<?php include('render.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
     <title>xml templating</title>
 </head>
 <body>
-
+<?php include('render.php'); ?>
 <a href="<?php echo $config['target_dir']; ?>">See all generated files</a>
 
 </body>

@@ -2,7 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{title}} by {{author}}</title>
+    <title>{{JobTitle}}</title>
+    <style>
+        body {
+            width: 96%;
+            max-width: 960px;
+            margin: 0 auto;
+            font: 1em/1.3 sans-serif;
+        }
+
+        pre {
+            overflow-x: scroll;
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -12,20 +25,24 @@
 
 <div class="content">
     <ul>
-        <li>Author: {{author}}</li>
-        <li>Title: {{title}}</li>
-        <li>Genre: {{genre}}</li>
-        <li>Cost: ${{price}}</li>
+        <li>Job title: {{JobTitle}}</li>
+        <li>Ref#: {{RequisitionNumber}}</li>
+        <li>Location of Job: {{JobCity}}, {{JobState}} {{JobPostalCode}}</li>
     </ul>
 
-<p>Published on {{publish_date}}</p>
+<p>Posted on {{JobPostDate}}</p>
+<p>About this job(<strong>output inside pre tag to preserve formatting</strong>):</p>
+<pre>{{JobDescription}}</pre>
+<p>About this job(<strong>output inside p tag</strong>):</p>
+<p>{{JobDescription}}</p>
 
-<p>{{description}}</p>
+<p><a href="{{LinkToApplyOnline}}">Apply For This Job</a></p>
+<p><a href="{{LinkToJobDetails}}">Learn More About this Position</a></p>
 </div>
 
 
     <footer>
-        <a href="index.php">back to book listing</a>
+        <a href="index.php">back to job listing</a>
     </footer>
 </body>
 </html>
