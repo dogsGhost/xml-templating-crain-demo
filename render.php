@@ -1,10 +1,24 @@
 <?php
 
 $config = [
-    'xml_src' => 'https://rew122.ultipro.com/CAS1011/jobboard/ReqXML.aspx',
+    'xml_feed' => 'https://rew12.ultipro.com/CAS1011/jobboard/ReqXML.aspx',
+    'xml_src' => 'jobs.xml',
     'tmpl_src' => 'template.html',
     'target_dir' => 'output/'
 ];
+
+// create a local xml file from the feed. ideally we would set a cron job to do this at set intervals.
+// This allows for consistency across the site when interacting with the data
+// regardless of when the site is querying it.
+
+$feed = file_get_contents($config['xml_feed']);
+if ($feed) {
+  $fh = fopen($config['xml_src'], 'w+'); //create new file if not exists
+  fwrite($fh, $feed) or die("Failed to write contents to new file"); //write contents to new XML file
+  fclose($fh) or die("failed to close stream resource"); //close resource stream
+} else {
+  die("Failed to read contents of feed at {$config['xml_feed']}");
+}
 
 function render_templated_files() {
     global $config;
@@ -45,7 +59,7 @@ try {
     echo "Caught exception: {$e->getMessage()} <br>";
 }
 
-
+require( 'count.php' );
 
 /*
 
