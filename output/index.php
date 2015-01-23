@@ -51,8 +51,11 @@
   </style>
 </head>
 <body>
+  <p>File names currently based off job's requistion number to ensure unique names, can be changed to use any unique value.</p>
   <ol>
     <?php echo get_dir_contents(); ?>
   </ol>
+
+  <a href="../">main page</a>
 </body>
 </html>

@@ -15,18 +15,22 @@
             overflow-x: scroll;
             font-family: sans-serif;
         }
+        p { max-width: 600px; }
     </style>
 </head>
 <body>
     <header>
-        This page was created from a template.
+        <h1>Generated page {{RequisitionNumber}}</h1>
+        This page was created from a template. The description xml value in this feed contains no html tags but is instead
+        styled with tabbed spacing and line returns. The two presentations presented below are both sub-par. If our
+        description value in the xml feed contains no html additional code will have to be written to parse line returns
+        into p tags before outputting it to the template.
     </header>
 
 
 <div class="content">
     <ul>
         <li>Job title: {{JobTitle}}</li>
-        <li>Ref#: {{RequisitionNumber}}</li>
         <li>Location of Job: {{JobCity}}, {{JobState}} {{JobPostalCode}}</li>
     </ul>
 
